@@ -2,8 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8db1abfc-5bb1-49b3-8d4f-b4c06ae813c2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/quickResponse.iml" afterPath="$PROJECT_DIR$/.idea/quickResponse.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/autoload.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/carbon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/carbon.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/patch-type-declarations" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/patch-type-declarations.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/php-parse" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/php-parse.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/phpunit" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/phpunit.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/pint" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/pint.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/psysh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/psysh.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/sail" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/sail.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/var-dump-server" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/var-dump-server.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/yaml-lint" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/yaml-lint.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/installed.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,12 +43,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
       </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -160,12 +211,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1695074050986</updated>
-      <workItem from="1695074052291" duration="291000" />
+      <workItem from="1695074052291" duration="565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="291000" />
+    <option name="totallyTimeSpent" value="565000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1038" extended-state="0" />
@@ -198,5 +249,15 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
