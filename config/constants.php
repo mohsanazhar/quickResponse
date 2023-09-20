@@ -7,3 +7,4 @@
  */
     const adminUrl = "admin";
     const userUrl = "user";
+    const reseller = "reseller";

@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Route;
  */
 
  Route::get('/',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
+ Route::get('/profile',[\App\Http\Controllers\Admin\DashboardController::class,'profile'])->name('admin.profile');
+ Route::post('/update-profile',[\App\Http\Controllers\Admin\DashboardController::class,'updateProfile'])->name('admin.updateProfile');
+ Route::get('/login-settings',[\App\Http\Controllers\Admin\DashboardController::class,'loginSettings'])->name('admin.loginSettings');
+ Route::post('/login-settings',[\App\Http\Controllers\Admin\DashboardController::class,'updatePassword'])->name('admin.updatePassword');
+
+ // settings
+ Route::get('/general-settings',[\App\Http\Controllers\Admin\DashboardController::class,'generalSettings'])->name('admin.general_settings');
+ Route::post('/save-settings',[\App\Http\Controllers\Admin\DashboardController::class,'saveSettings'])->name('admin.saveSettings');
+
  // Users
 
  Route::prefix('users')->group(function(){

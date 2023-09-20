@@ -59,8 +59,16 @@
                                             <input type="text" name="name" placeholder="Enter name " value="{{old('name',$edit['name'])}}" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label>Number of allow</label>
+                                            <label>Number of mails allow</label>
                                             <input type="number" name="counts" min="1" value="{{old('counts',$edit['counts'])}}" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Number of recipients allow</label>
+                                            <input type="number" name="recipients" min="1" value="{{old('recipients',$edit['recipients'])}}" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Amount</label>
+                                            <input type="number" name="amount" min="1" value="{{old('amount',$edit['amount'])}}" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>

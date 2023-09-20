@@ -1,17 +1,17 @@
-@extends('master.app')
+@extends('reseller.layout.app')
     @section('style')
         <link href="{{asset('/master')}}/css/plugins/iCheck/custom.css" rel="stylesheet">
         <link href="{{asset('/master')}}/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
     @endsection
     @section('content')
         <div id="page-wrapper" class="gray-bg">
-            @include('admin.top_headers')
+            @include('reseller.layout.top_headers')
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
                     <h2>Add User</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{adminUrl()}}">Home</a>
+                            <a href="{{resellerUrl()}}">Home</a>
                         </li>
                         <li class="breadcrumb-item">
                             <a>Users</a>
@@ -43,7 +43,10 @@
                                         @if(session()->has('success'))
                                             <div class="alert alert-success">{{session()->get('success')}}</div>
                                         @endif
-                                        <form role="form" method="post" action="{{route('users.saveNewUser')}}">
+                                            @if(session()->has('error'))
+                                                <div class="alert alert-danger">{{session()->get('error')}}</div>
+                                            @endif
+                                        <form role="form" method="post" action="{{route('users.store')}}">
                                             @csrf
                                             @if ($errors->any())
                                                 <div class="alert alert-danger">
@@ -55,14 +58,7 @@
                                                 </div>
                                             @endif
                                             <div class="form-group">
-                                                <label>User Type</label>
-                                                <br>
-                                                <label>
-                                                    <input type="radio"  class="i-checks" name="user_type" value="web" checked> End User
-                                                </label>
-                                                <label>
-                                                    <input type="radio" class="i-checks" name="user_type" value="reseller"> Reseller
-                                                </label>
+                                                    <input type="hidden"  class="i-checks" name="user_type" value="web">
                                             </div>
                                             <div class="form-group">
                                                 <label>User Name</label>
@@ -176,8 +172,8 @@
                                                 <label>Account Type</label>
                                                 <select class="form-control" name="account_type">
                                                     <option value="">Please select account type</option>
-                                                    @if(count($accountType)>0)
-                                                        @foreach($accountType as $k=>$v)
+                                                    @if(count($account)>0)
+                                                        @foreach($account as $k=>$v)
                                                             <option value="{{$v['id']}}">{{$v['name']}}</option>
                                                         @endforeach
                                                     @endif

@@ -20,6 +20,7 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/home';
     public const ADMIN = "/".adminUrl;
     public const USER ="/".userUrl;
+    public const RESELLER = "/".reseller;
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -40,6 +41,9 @@ class RouteServiceProvider extends ServiceProvider
             Route::prefix('user')
                 ->middleware(['web','auth'])
                 ->group(base_path('routes/user.php'));
+            Route::prefix('reseller')
+                ->middleware(['web','auth'])
+                ->group(base_path('routes/reseller.php'));
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));

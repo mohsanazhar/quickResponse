@@ -81,6 +81,8 @@ class AccountsController extends Controller
             $model->name = $d['name'];
             $model->counts = $d['counts'];
             $model->status = ($request->has('status'))?1:0;
+            $model->recipients = $d['recipients'];
+            $model->amount = $d['amount'];
             $model->save();
             session()->flash('success','Account type is updated');
             return redirect()->to(route('accounts.list'));

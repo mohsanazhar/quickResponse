@@ -1,7 +1,7 @@
-@extends('master.app')
+@extends('reseller.layout.app')
 @section('content')
     <div id="page-wrapper" class="gray-bg">
-        @include('admin.top_headers')
+        @include('reseller.layout.top_headers')
         <div class="wrapper wrapper-content">
             <div class="row">
                 <div class="col-lg-3">

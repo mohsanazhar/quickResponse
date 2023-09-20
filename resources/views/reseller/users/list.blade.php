@@ -1,19 +1,19 @@
-@extends('master.app')
+@extends('reseller.layout.app')
     @section('style')
         <link href="{{asset('/master')}}/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
      @endsection
     @section('content')
         <div id="page-wrapper" class="gray-bg">
-            @include('admin.top_headers')
+            @include('reseller.layout.top_headers')
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Account Type</h2>
+                    <h2>Users</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{adminUrl()}}">Home</a>
+                            <a href="{{resellerUrl()}}">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a>Account Type</a>
+                            <a>Users</a>
                         </li>
                         <li class="breadcrumb-item active">
                             <strong>List</strong>
@@ -37,26 +37,34 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Mails Allow</th>
-                                            <th>Recipients Allow</th>
-                                            <th>Fee</th>
+                                            <th>User Name</th>
+                                            <th>User Type</th>
+                                            <th>Account Type</th>
+                                            <th>Email</th>
                                             <th>Status</th>
+                                            <th>Phone</th>
+                                            <th>City</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if(count($list)>0)
-                                            @foreach($list as $k=>$v)
+                                        @if(count($users)>0)
+                                            @foreach($users as $k=>$v)
+                                                @php
+                                                $accountType = $v['accountType'];
+
+                                                @endphp
                                                 <tr class="gradeX">
                                                     <td>{{$v['id']}}</td>
-                                                    <td>{{$v['name']}}</td>
-                                                    <td>{{$v['counts']}}</td>
-                                                    <td>{{$v['recipients']}}</td>
-                                                    <td>{{$v['amount']}}</td>
+                                                    <td>{{$v['user_name']}}</td>
+                                                    <td>{{$v['user_type']}}</td>
+                                                    <td>{{(!is_null($accountType))?$accountType['name']:''}}</td>
+                                                    <td class="center">{{$v['email']}}</td>
                                                     <td class="center">{{($v['status']==1)?"Active":"Disable"}}</td>
+                                                    <td class="center">{{$v['phone']}}</td>
+                                                    <td class="center">{{$v['city']}}</td>
                                                     <td class="center">
-                                                        <a href="{{route('accounts.edit',$v['id'])}}" class="btn btn-xs">
+                                                        <a href="{{route('users.edit',$v['id'])}}" class="btn btn-xs">
                                                             <i class="fa fa-edit">  </i>
                                                         </a>
                                                     </td>
