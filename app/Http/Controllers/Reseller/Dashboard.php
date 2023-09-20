@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Reseller;
 
 use App\Http\Controllers\Controller;
-use App\Models\AccountTypeModel;
-use App\Models\SettingModel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class DashboardController extends Controller
+class Dashboard extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.dashboard');
+        return view('reseller.dashboard');
     }
 
     /**
@@ -70,7 +69,7 @@ class DashboardController extends Controller
      */
     function profile(Request $request){
         $user = auth()->user();
-        return view('admin.settings.profile',compact('user'));
+        return view('reseller.settings.profile',compact('user'));
     }
     /*
      * update proffile
@@ -89,13 +88,13 @@ class DashboardController extends Controller
             $user->save();
             session()->flash('success','Profile is updated successfully');
         }
-        return redirect()->to(route('admin.profile'));
+        return redirect()->to(route('reseller.profile'));
     }
     /*
      * login password view
      */
     function loginSettings(Request $request){
-        return view('admin.settings.login_setting');
+        return view('reseller.settings.login_setting');
     }
     /*
      * update setttings
@@ -115,38 +114,12 @@ class DashboardController extends Controller
                     $user->password = Hash::make($request->input('new_password'));
                     $user->save();
                     session()->flash('success', 'Password is updated successfully');
-                    return redirect()->to(route('admin.loginSettings'));
+                    return redirect()->to(route('reseller.settings'));
                 }else{
                     session()->flash('error', 'Please enter correct old password');
-                    return redirect()->to(route('admin.loginSettings'));
+                    return redirect()->to(route('reseller.settings'));
                 }
             }
         }
-    }
-    /*
-     * general settings
-     */
-    function generalSettings(Request $request){
-        $list = AccountTypeModel::where(['status'=>1])->get();
-        $settings = SettingModel::where(['create_by'=>auth()->id()])->get();
-        return view('admin.settings.general',compact('list','settings'));
-    }
-    /*
-     * update settings
-     */
-    function saveSettings(Request $request){
-        $d = $request->except('_token');
-        $user = auth()->user();
-        $temp = [];
-        foreach ($d as $k=>$v){
-            $temp[] = [
-                'key'=>$k,
-                'value'=>$v,
-                'create_by'=>$user['id']
-            ];
-        }
-        SettingModel::upsert($temp,['key']);
-        session()->flash('success','Setting is saved');
-        return redirect()->back();
     }
 }
