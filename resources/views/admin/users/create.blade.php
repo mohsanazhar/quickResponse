@@ -43,6 +43,9 @@
                                         @if(session()->has('success'))
                                             <div class="alert alert-success">{{session()->get('success')}}</div>
                                         @endif
+                                        @if(session()->has('error'))
+                                            <div class="alert alert-danger">{{session()->get('error')}}</div>
+                                        @endif
                                         <form role="form" method="post" action="{{route('users.saveNewUser')}}">
                                             @csrf
                                             @if ($errors->any())
@@ -57,11 +60,11 @@
                                             <div class="form-group">
                                                 <label>User Type</label>
                                                 <br>
-                                                <label>
-                                                    <input type="radio"  class="i-checks" name="user_type" value="web" checked> End User
+                                                <label onclick="changeUser('web')">
+                                                    <input type="radio"  class="i-checks" name="user_type"  value="web" checked> End User
                                                 </label>
-                                                <label>
-                                                    <input type="radio" class="i-checks" name="user_type" value="reseller"> Reseller
+                                                <label onclick="changeUser('reseller')">
+                                                    <input type="radio" class="i-checks" name="user_type"  value="reseller"> Reseller
                                                 </label>
                                             </div>
                                             <div class="form-group">
@@ -89,7 +92,7 @@
                                                 <input type="password" name="password" placeholder="Enter password" class="form-control">
                                             </div>
                                             <div class="form-group ">
-                                                <label>Phone</label>
+                                                <label>Mobile Phone</label>
                                                 <input type="text" name="phone" placeholder="Enter phone" value="{{old('phone','')}}" class="form-control">
                                             </div>
                                             <div class="form-group ">
@@ -100,9 +103,17 @@
                                                 <label>Work Phone</label>
                                                 <input type="text" name="work_phone" placeholder="Enter phone" value="{{old('work_phone','')}}" class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user ">
+                                                <label>Emergency Contact Name</label>
+                                                <input type="text" name="emerg_contact_name" placeholder="Enter emergency contact name" value="{{old('emerg_contact_name','')}}"  class="form-control">
+                                            </div>
+                                            <div class="form-group end_user ">
                                                 <label>Emergency Phone</label>
-                                                <input type="text" name="emerg_contact" placeholder="Enter emergency contact" value="{{old('emerg_contact','')}}"  class="form-control">
+                                                <input type="text" name="emerg_contact" placeholder="Enter emergency phone number" value="{{old('emerg_contact','')}}"  class="form-control">
+                                            </div>
+                                            <div class="form-group end_user ">
+                                                <label>Emergency Contact Mail</label>
+                                                <input type="email" name="emerg_contact_mail" placeholder="Enter emergency contact mail" value="{{old('emerg_contact_mail','')}}"  class="form-control">
                                             </div>
                                             <div class="form-group ">
                                                 <label>Street</label>
@@ -120,53 +131,57 @@
                                                 <label>Zip Code</label>
                                                 <input type="text" name="zip_code" placeholder="Enter zip code" value="{{old('zip_code','')}}"  class="form-control">
                                             </div>
-                                            <div class="form-group ">
-                                                <label>Employer</label>
+                                            .<div class="form-group ">
+                                                <label>Employer Name</label>
                                                 <input type="text" name="employer" placeholder="Enter employer"  value="{{old('employer','')}}" class="form-control">
                                             </div>
                                             <div class="form-group ">
+                                                <label>Employer Phone Number</label>
+                                                <input type="text" name="employer_number" placeholder="Enter employer phone number"  value="{{old('employer_number','')}}" class="form-control">
+                                            </div>
+                                            <div class="form-group end_user ">
                                                 <label>Date of Birth</label>
                                                 <input type="date" name="dob" placeholder="Select date of birth" value="{{old('dob','')}}"  class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user ">
                                                 <label>Birth Place</label>
                                                 <input type="text" name="birth_place" placeholder="Enter birth place" value="{{old('birth_place','')}}"  class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user ">
                                                 <label>Social Security Number</label>
                                                 <input type="text" name="ssn" placeholder="Enter social security number" value="{{old('ssn','')}}"  class="form-control">
                                             </div>
-                                            <div class="form-group ">
-                                                <label>Employer</label>
-                                                <input type="text" name="employer" placeholder="Enter employer" value="{{old('"employer','')}}"  class="form-control">
-                                            </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user ">
                                                 <label>High School</label>
                                                 <input type="text" name="high_school" placeholder="Enter high school" value="{{old('high_school','')}}"  class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user ">
                                                 <label>College</label>
                                                 <input type="text" name="college" placeholder="Enter college"value="{{old('college','')}}"   class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user ">
                                                 <label>Facebook Address</label>
                                                 <input type="text" name="fb_link" placeholder="Enter facebook address" value="{{old('fb_link','')}}"  class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user ">
                                                 <label>Twitter</label>
                                                 <input type="text" name="twitter" placeholder="Enter twitter link" value="{{old('twitter','')}}"  class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user ">
                                                 <label>Instagram Link</label>
                                                 <input type="text" name="instagram" placeholder="Enter instagram link" value="{{old('instagram','')}}"  class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user ">
                                                 <label>TikTok Link</label>
                                                 <input type="text" name="ticktock" placeholder="Enter tikTok username" value="{{old('ticktock','')}}"  class="form-control">
                                             </div>
-                                            <div class="form-group ">
-                                                <label>Kin Name</label>
-                                                <input type="text" name="kin_name" placeholder="Enter kin name" value="{{old('kin_name','')}}"  class="form-control">
+                                            <div class="form-group end_user ">
+                                                <label>Next Of Kin</label>
+                                                <input type="text" name="kin_name" placeholder="Enter next of kin" value="{{old('kin_name','')}}"  class="form-control">
+                                            </div>
+                                            <div class="form-group end_user ">
+                                                <label>Next Of Kin Contact Number</label>
+                                                <input type="text" name="kin_contact_number" placeholder="Enter next of kin contact number" value="{{old('kin_contact_number','')}}"  class="form-control">
                                             </div>
                                             <div class="form-group ">
                                                 <label>Note</label>
@@ -216,6 +231,14 @@
         <!-- iCheck -->
         <script src="{{asset('/master')}}/js/plugins/iCheck/icheck.min.js"></script>
         <script>
+            function changeUser(t){
+                if(t=="web"){
+                    $(document).find('.end_user').removeClass('d-none');
+                }
+                if(t=="reseller"){
+                    $(document).find('.end_user').addClass('d-none');
+                }
+            }
             $(document).ready(function () {
                 function complete_name() {
                     var first = $('.first_name').val();

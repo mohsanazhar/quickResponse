@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('status')->default(0);
+            $table->string('status')->default('waiting');
             $table->string('phone')->nullable();
             $table->string('home_phone')->nullable();
             $table->string('work_phone')->nullable();

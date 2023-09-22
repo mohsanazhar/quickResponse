@@ -25,6 +25,9 @@ use Illuminate\Support\Facades\Route;
      Route::post('store',[\App\Http\Controllers\Admin\UserController::class,'store'])->name('users.saveNewUser');
      Route::get('edit/{id}',[\App\Http\Controllers\Admin\UserController::class,'edit'])->name('users.editUser');
      Route::post('update/{id}',[\App\Http\Controllers\Admin\UserController::class,'update'])->name('users.updateUser');
+     Route::get('update-status/{type}/{status}/{id}',[\App\Http\Controllers\Admin\UserController::class,'updateStats'])->name('users.updateStatus');
+     Route::get('delete/{id}',[\App\Http\Controllers\Admin\UserController::class,'delete'])->name('users.delete');
+     Route::get('reseller-payments',[\App\Http\Controllers\Admin\UserController::class,'reseller_payments'])->name('users.resellerPayments');
  });
  //accounts
 Route::prefix('accounts')->group(function(){

@@ -51,4 +51,7 @@ class User extends Authenticatable
     function accountType(){
         return $this->belongsTo(AccountTypeModel::class,'account_type');
     }
+    function creater(){
+        return $this->belongsTo(User::class,'create_by');
+    }
 }

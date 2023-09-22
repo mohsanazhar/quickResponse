@@ -15,7 +15,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $resellers = User::where(['user_type'=>'reseller'])->count();
+        $recipients= User::where(['user_type'=>'recipients'])->count();
+        $account_type = AccountTypeModel::count();
+        return view('admin.dashboard',compact('resellers','recipients','account_type'));
     }
 
     /**

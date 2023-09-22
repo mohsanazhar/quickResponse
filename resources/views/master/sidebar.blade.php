@@ -31,11 +31,11 @@
                 <ul class="nav nav-second-level collapse">
                     <li><a href="{{route('users.createNewUser')}}">Add New</a></li>
                     <li><a href="{{route('users.listUser')}}">List</a></li>
-
+                    <li><a href="{{route('users.resellerPayments')}}">Reseller Payments</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Accounts</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-book"></i> <span class="nav-label">Accounts Plans</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="{{route('accounts.create')}}">Add New</a></li>
                     <li><a href="{{route('accounts.list')}}">List</a></li>

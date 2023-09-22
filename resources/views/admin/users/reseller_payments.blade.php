@@ -43,13 +43,12 @@
                                         <tr>
                                             <th>#</th>
                                             <th>User Name</th>
-                                            <th>User Type</th>
                                             <th>Account Type</th>
+                                            <th>Creator</th>
                                             <th>Email</th>
-                                            <th>Status</th>{{--
-                                            <th>Payments</th>--}}
+                                            <th>Status</th>
+                                            <th>Payments</th>
                                             <th>Phone</th>
-                                            <th>City</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -58,46 +57,39 @@
                                             @foreach($users as $k=>$v)
                                                 @php
                                                 $accountType = $v['accountType'];
-
+                                                $create_by = $v['creater'];
+                                                $create_user = "Admin";
+                                                if(!is_null($create_by)){
+                                                     $create_user = $create_by['name'];
+                                                }
                                                 @endphp
                                                 <tr class="gradeX">
                                                     <td>{{$v['id']}}</td>
                                                     <td>{{$v['user_name']}}</td>
-                                                    <td>{{ucwords($v['user_type'])}}</td>
                                                     <td>{{(!is_null($accountType))?$accountType['name']:''}}</td>
+                                                    <td>{{$create_user}}</td>
                                                     <td class="center">{{$v['email']}}</td>
-                                                    <td class="center">{{account_status[$v['status']]}}</td>{{--
-                                                    <td class="text-center">{{payment_status[$v['payment_status']]}}</td>--}}
+                                                    <td class="center">{{account_status[$v['status']]}}</td>
+                                                    <td class="text-center">{{payment_status[$v['payment_status']]}}</td>
                                                     <td class="center">{{$v['phone']}}</td>
-                                                    <td class="center">{{$v['city']}}</td>
-                                                    <!-- user status -->
                                                     <td class="text-center">
-                                                        <a href="{{route('users.editUser',$v['id'])}}" class="btn btn-xs btn-info" title="Edit">
-                                                            <i class="fa fa-edit">  </i>
-                                                        </a>
-                                                        @if($v['status'] == "waiting")
-                                                            <a href="{{route('users.updateStatus',['type'=>'account','status'=>'active','id'=>$v['id']])}}" class="btn btn-xs btn-success" title="{{account_status['active']}}">
-                                                                <i class="fa fa-check">  </i>
+                                                        @if($v['payment_status']=="paid")
+                                                            <a href="{{route('users.updateStatus',['type'=>'payment','status'=>'unpaid','id'=>$v['id']])}}" class="btn btn-xs btn-danger" title="{{payment_status['unpaid']}}">
+                                                                <i class="fa fa-times"></i>
                                                             </a>
                                                         @endif
-                                                        @if($v['status'] == "active")
-                                                            <a href="{{route('users.updateStatus',['type'=>'account','status'=>'waiting','id'=>$v['id']])}}" class="btn btn-xs btn-info" title="{{account_status['waiting']}}">
-                                                                <i class="fa fa-circle-o">  </i>
-                                                            </a>
-                                                            <a href="{{route('users.updateStatus',['type'=>'account','status'=>'deceased','id'=>$v['id']])}}" class="btn btn-xs btn-primary" title="{{account_status['deceased']}}">
-                                                                <i class="fa fa-universal-access">  </i>
-                                                            </a>
-                                                            <a href="{{route('users.updateStatus',['type'=>'account','status'=>'cancelled','id'=>$v['id']])}}" class="btn btn-xs btn-danger" title="{{account_status['cancelled']}}">
-                                                                <i class="fa fa-stop-circle">  </i>
-                                                            </a>
+                                                        @if($v['payment_status']=="unpaid")
+                                                                <a href="{{route('users.updateStatus',['type'=>'payment','status'=>'paid','id'=>$v['id']])}}" class="btn btn-xs btn-success" title="{{payment_status['paid']}}">
+                                                                    <i class="fa fa-check"></i>
+                                                                </a>
                                                         @endif
-                                                        @if($v['status'] == "cancelled")
-                                                            <a href="{{route('users.updateStatus',['type'=>'account','status'=>'active','id'=>$v['id']])}}" class="btn btn-xs btn-success" title="{{account_status['active']}}">
-                                                                <i class="fa fa-check">  </i>
-                                                            </a>
+                                                        @if($v['payment_status']=="subscription")
+                                                                <a href="{{route('users.updateStatus',['type'=>'payment','status'=>'unpaid','id'=>$v['id']])}}" class="btn btn-xs btn-danger" title="{{payment_status['unpaid']}}">
+                                                                    <i class="fa fa-times"></i>
+                                                                </a>
                                                         @endif
-                                                        <a href="{{route('users.delete',['id'=>$v['id']])}}" class="btn btn-xs btn-danger" title="Delete user account">
-                                                            <i class="fa fa-times">  </i>
+                                                        <a href="{{route('users.updateStatus',['type'=>'payment','status'=>'subscription','id'=>$v['id']])}}" class="btn btn-xs btn-primary" title="{{payment_status['subscription']}}">
+                                                            <i class="fa fa-calendar-check-o"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
