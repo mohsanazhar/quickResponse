@@ -8,6 +8,10 @@
     const adminUrl = "admin";
     const userUrl = "user";
     const reseller = "reseller";
+    const  waiting = "Awaiting Approval";
+    const  active = "Active";
+    const  deceased = "Deceased";
+    const  cancelled = "Cancelled";
     // account status
     const account_status = [
         'waiting'=>"Awaiting Approval",

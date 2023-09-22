@@ -21,4 +21,9 @@ use Illuminate\Support\Facades\Route;
      Route::get('edit/{id}',[\App\Http\Controllers\Reseller\UserController::class,'edit'])->name('users.edit');
      Route::post('update/{id}',[\App\Http\Controllers\Reseller\UserController::class,'update'])->name('users.update');
  });
-
+ // reseller funds
+Route::prefix('funds')->group(function(){
+    Route::get('list',[\App\Http\Controllers\Reseller\FundsController::class,'index'])->name('funds.list');
+    Route::get('create',[\App\Http\Controllers\Reseller\FundsController::class,'create'])->name('funds.create');
+    Route::post('store',[\App\Http\Controllers\Reseller\FundsController::class,'store'])->name('funds.store');
+});

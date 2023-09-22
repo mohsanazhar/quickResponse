@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AccountTypeModel;
+use App\Models\FundsModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -151,5 +152,60 @@ class UserController extends Controller
     function reseller_payments(Request $request){
         $users = User::with(['accountType','creater'])->where('user_type','!=','admin')->get();
         return view('admin.users.reseller_payments',compact('users'));
+    }
+    /*
+     * funds create view
+     */
+    function funds_create(Request $request){
+        $reseller = User::where(['user_type'=>'reseller','status'=>active])->get();
+        return view('admin.funds.create',compact('reseller'));
+    }
+    /*
+     * funds list view
+     */
+    function funds_list(Request $request){
+        $list = FundsModel::with('creator')->get();
+        return view('admin.funds.list',compact('list'));
+    }
+    /*
+     * funds status
+     */
+    function funds_status($status,$id){
+        $funds = FundsModel::find($id);
+        if(!is_null($funds)){
+            $funds->status = $status;
+            $funds->approver = auth()->id();
+            $funds->save();
+
+            $user = User::find($funds['user_id']);
+            if(!is_null($user)){
+                $user['balance'] = $funds->amount + $user['balance'];
+                $user->save();
+            }
+            session()->flash('success','Status and user balance are updated.');
+            return redirect()->to(route('admin.funds.list'));
+        }else{
+            session()->flash('error','Invalid request data');
+            return redirect()->to(route('admin.funds.list'));
+        }
+    }
+    /*
+     * funds store
+     */
+    function funds_store(Request $request){
+        $valid = validator()->make($request->input(),[
+            'payment_method'=>'required',
+            'amount'=>'required|min:1|numeric',
+            'user_id'=>'required'
+        ]);
+        if($valid->fails()){
+            return redirect()->back()->withErrors($valid->errors())->withInput($request->input());
+        }else{
+            $d = $request->except('_token');
+            $d['status'] = "unpaid";
+            FundsModel::create($d);
+            session()->flash('success','Funds request is created. Please mark it approved');
+            return redirect()->to(route('admin.funds.list'));
+        }
     }
 }

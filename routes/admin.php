@@ -37,3 +37,11 @@ Route::prefix('accounts')->group(function(){
     Route::get('edit/{id}',[\App\Http\Controllers\Admin\AccountsController::class,'edit'])->name('accounts.edit');
     Route::post('update/{id}',[\App\Http\Controllers\Admin\AccountsController::class,'update'])->name('accounts.update');
 });
+// reseller funds
+Route::prefix('funds')->group(function(){
+    Route::get('list',[\App\Http\Controllers\Admin\UserController::class,'funds_list'])->name('admin.funds.list');
+    Route::get('create',[\App\Http\Controllers\Admin\UserController::class,'funds_create'])->name('admin.funds.create');
+    Route::post('store',[\App\Http\Controllers\Admin\UserController::class,'funds_store'])->name('admin.funds.store');
+    Route::post('log',[\App\Http\Controllers\Admin\UserController::class,'funds_log'])->name('admin.funds.log');
+    Route::get('status/{status}/{id}',[\App\Http\Controllers\Admin\UserController::class,'funds_status'])->name('admin.funds.status');
+});
