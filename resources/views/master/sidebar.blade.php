@@ -43,6 +43,14 @@
                 </ul>
             </li>
             <li>
+                <a href="#"><i class="fa fa-bank"></i> <span class="nav-label">Funds</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{{route('admin.funds.create')}}">Add New</a></li>
+                    <li><a href="{{route('admin.funds.list')}}">Log</a></li>
+
+                </ul>
+            </li>
+            <li>
                 <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="{{route('admin.general_settings')}}">General</a></li>

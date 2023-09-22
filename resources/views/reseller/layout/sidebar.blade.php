@@ -35,14 +35,14 @@
 
                 </ul>
             </li>
-            {{--<li>
-                <a href="#"><i class="fa fa-banl"></i> <span class="nav-label">Funds</span><span class="fa arrow"></span></a>
+            <li>
+                <a href="#"><i class="fa fa-bank"></i> <span class="nav-label">Funds</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="{{route('funds.create')}}">Add Funds</a></li>
                     <li><a href="{{route('funds.list')}}">History</a></li>
 
                 </ul>
-            </li>--}}
+            </li>
         </ul>
 
     </div>
