@@ -8,3 +8,17 @@
     const adminUrl = "admin";
     const userUrl = "user";
     const reseller = "reseller";
+    // account status
+    const account_status = [
+        'waiting'=>"Awaiting Approval",
+        'active'=>'Active',
+        'deceased'=>'Deceased',
+        'cancelled'=>'Cancelled'
+    ];
+
+    // payment status
+    const payment_status = [
+        'unpaid'=>'Un Paid',
+        'paid'=>'Paid',
+        'subscription'=>'Subscription'
+    ];

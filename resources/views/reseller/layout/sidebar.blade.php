@@ -35,6 +35,14 @@
 
                 </ul>
             </li>
+            {{--<li>
+                <a href="#"><i class="fa fa-banl"></i> <span class="nav-label">Funds</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{{route('funds.create')}}">Add Funds</a></li>
+                    <li><a href="{{route('funds.list')}}">History</a></li>
+
+                </ul>
+            </li>--}}
         </ul>
 
     </div>

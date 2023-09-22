@@ -108,8 +108,48 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(string $id)
     {
-        //
+        $model = User::find($id);
+        if(!is_null($model)){
+            $model->delete();
+            session()->flash('success','User is deleted successfully');
+            return redirect()->back();
+        }else{
+            session()->flash('error','Invalid request data');
+            return redirect()->back();
+        }
+    }
+    /*
+     * update status of users
+     */
+    function updateStats($type,$status,$id){
+        $user = User::find($id);
+        if(!is_null($user)){
+            switch ($type){
+                case 'payment':
+                    $user->payment_status = $status;
+                    $user->save();
+                    session()->flash('success','Payment status is updated successfully');
+                    break;
+                case 'account':
+                    $user->status = $status;
+                    $user->save();
+                    session()->flash('success','User status is updated successfully');
+                    break;
+
+            }
+            return redirect()->back();
+        }else{
+            session()->flash('error','Invalid request data');
+            return redirect()->back();
+        }
+    }
+    /*
+     * reseller payments details views
+     */
+    function reseller_payments(Request $request){
+        $users = User::with(['accountType','creater'])->where('user_type','!=','admin')->get();
+        return view('admin.users.reseller_payments',compact('users'));
     }
 }
