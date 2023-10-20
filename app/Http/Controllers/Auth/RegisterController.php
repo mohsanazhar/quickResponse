@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -58,6 +60,34 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:5'],
         ]);
     }
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+        $url_intended = "";
+        //$user = auth()->user();
+        switch ($user['user_type']){
+            case 'admin':
+                $url_intended = RouteServiceProvider::ADMIN;
+                break;
+            case 'reseller':
+                $url_intended = RouteServiceProvider::RESELLER;
+                break;
+            case 'user':
+                $url_intended = RouteServiceProvider::USER;
+                break;
+        }
+        return $request->wantsJson()
+            ? new JsonResponse([], 201)
+            : redirect($url_intended);
+}
 
     /**
      * Create a new user instance after a valid registration.

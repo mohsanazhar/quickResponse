@@ -7,11 +7,11 @@
 
     <title>Register</title>
 
-    <link href="{{asset('/')}}/public/master/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{asset('/')}}/public/master/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="{{asset('/')}}/public/master/css/plugins/iCheck/custom.css" rel="stylesheet">
-    <link href="{{asset('/')}}/public/master/css/animate.css" rel="stylesheet">
-    <link href="{{asset('/')}}/public/master/css/style.css" rel="stylesheet">
+    <link href="{{asset('/')}}/master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('/')}}/master/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="{{asset('/')}}/master/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="{{asset('/')}}/master/css/animate.css" rel="stylesheet">
+    <link href="{{asset('/')}}/master/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -92,11 +92,11 @@
 </div>
 
 <!-- Mainly scripts -->
-<script src="{{asset('/')}}/public/master/js/jquery-3.1.1.min.js"></script>
-<script src="{{asset('/')}}/public/master/js/popper.min.js"></script>
-<script src="{{asset('/')}}/public/master/js/bootstrap.js"></script>
+<script src="{{asset('/')}}/master/js/jquery-3.1.1.min.js"></script>
+<script src="{{asset('/')}}/master/js/popper.min.js"></script>
+<script src="{{asset('/')}}/master/js/bootstrap.js"></script>
 <!-- iCheck -->
-<script src="{{asset('/')}}/public/master/js/plugins/iCheck/icheck.min.js"></script>
+<script src="{{asset('/')}}/master/js/plugins/iCheck/icheck.min.js"></script>
 <script>
     $(document).ready(function(){
         function complete_name() {
