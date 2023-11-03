@@ -16,8 +16,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('accountType')->where('user_type','!=','admin')->get();
+        $users = User::with('accountType')->where('user_type','=','web')->get();
         return view('admin.users.list',compact('users'));
+    }
+    /*
+     * reseller's list
+     */
+    function reseller_list(){
+        $resellers = User::with('accountType')->where('user_type','=','reseller')->get();
+        return view('admin.users.resellers',compact('resellers'));
     }
 
     /**
@@ -34,14 +41,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       $valid = validator()->make($request->input(),[
-           'user_name'=>'required',
+       $rules = [
            'first_name'=>'required',
            'last_name'=>'required',
            'email'=>'required|email|unique:users',
            'password'=>'required',
-           'account_type'=>'required'
-       ]);
+       ];
+       if($request->integer('user_type')=='web'){
+           $rules['account_type'] = 'required';
+       }
+       $valid = validator()->make($request->input(),$rules);
        if($valid->fails()){
            return redirect()->back()->withErrors($valid->errors())->withInput($request->input());
        }else{

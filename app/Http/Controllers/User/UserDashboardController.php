@@ -68,9 +68,13 @@ class UserDashboardController extends Controller
     /*
      * user profile view
      */
+    function profile_view(Request $request){
+        $user = auth()->user();
+        $user = User::find($user['id']);
+        return view('users.settings.profile',compact('user'));
+    }
     function profile(Request $request){
         $user = auth()->user();
-        if($request->method("post")){
             $user = User::find($user['id']);
 
             $d = $request->except('_token');
@@ -81,15 +85,13 @@ class UserDashboardController extends Controller
             }
             $user->save();
             session()->flash('success','Profile is updated successfully');
-        }
-        $user = User::find($user['id']);
-        return view('users.settings.profile',compact('user'));
+            return redirect()->to(route('users.profile'));
     }
     /*
      * settings function
      */
     function settings(Request $request){
-            return view('users.settings.setting');
+        return view('users.settings.setting');
     }
     /*
      * update setttings

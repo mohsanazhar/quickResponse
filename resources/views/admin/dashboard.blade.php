@@ -4,51 +4,27 @@
         @include('admin.top_headers')
         <div class="wrapper wrapper-content">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-md-12 col-sm-12">
                     <div class="ibox ">
                         <div class="ibox-title">
-                            <div class="ibox-tools">
-                            </div>
                             <h5>Resellers</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">{{$resellers}}</h1>
-
-                            <small>Total</small>
+                            <div class="table-responsive">
+                                @include('admin.users.tables.reseller_table')
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-md-12 col-sm-12">
                     <div class="ibox ">
                         <div class="ibox-title">
-                            <h5>Recipients</h5>
+                            <h5>Users</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">{{$recipients}}</h1>
-                            <small>Total</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="ibox ">
-                        <div class="ibox-title">
-                            <h5>Account Plans</h5>
-                        </div>
-                        <div class="ibox-content">
-                            <h1 class="no-margins">{{$account_type}}</h1>
-
-                            <small>Total</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="ibox ">
-                        <div class="ibox-title">
-                            <h5>Account Balance</h5>
-                        </div>
-                        <div class="ibox-content">
-                            <h1 class="no-margins">80,600</h1>
-                            <small>Total</small>
+                            <div class="table-responsive">
+                                @include('admin.users.tables.users')
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -57,4 +33,9 @@
         @include('admin.footer')
     </div>
 
+@endsection
+@section('script')
+    <!-- Custom and plugin javascript -->
+    <script src="{{asset('/master')}}/js/inspinia.js"></script>
+    <script src="{{asset('/master')}}/js/plugins/pace/pace.min.js"></script>
 @endsection

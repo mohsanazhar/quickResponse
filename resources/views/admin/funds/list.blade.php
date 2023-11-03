@@ -55,7 +55,7 @@
                                             @foreach($list as $k=>$v)
                                                 <tr class="gradeX">
                                                     <td>{{$v['id']}}</td>
-                                                    <td>{{$method[$v['payment_method']]}}</td>
+                                                    <td>{{(array_key_exists($v['payment_method'],$method))?$method[$v['payment_method']]:'N/A'}}</td>
                                                     <td>{{$v['amount']}}</td>
                                                     <td>{{payment_status[$v['status']]}}</td>
                                                     <td>
@@ -92,6 +92,9 @@
         </div>
     @endsection
     @section('script')
+        <!-- Custom and plugin javascript -->
+        <script src="{{asset('/master')}}/js/inspinia.js"></script>
+        <script src="{{asset('/master')}}/js/plugins/pace/pace.min.js"></script>
         <script src="{{asset('/master')}}/js/plugins/dataTables/datatables.min.js"></script>
         <script src="{{asset('/master')}}/js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
         <!-- Page-Level Scripts -->

@@ -15,10 +15,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $resellers = User::where(['user_type'=>'reseller'])->count();
         $recipients= User::where(['user_type'=>'recipients'])->count();
         $account_type = AccountTypeModel::count();
-        return view('admin.dashboard',compact('resellers','recipients','account_type'));
+        $resellers = User::with('accountType')->where('user_type','=','reseller')->get();
+        $users = User::with('accountType')->where('user_type','=','web')->get();
+        return view('admin.dashboard',compact('resellers','recipients','account_type','users'));
     }
 
     /**

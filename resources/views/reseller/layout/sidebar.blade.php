@@ -23,23 +23,23 @@
                     IN+
                 </div>
             </li>
-            <li class="active">
+            <li class="{{($seg2=="")?'active':''}}">
                 <a href="{{resellerUrl()}}">
                     <i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a>
             </li>
-            <li>
+            <li class="{{($seg2=="users")?'active':''}}">
                 <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Users</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="{{route('users.create')}}">Add New</a></li>
-                    <li><a href="{{route('users.list')}}">List</a></li>
+                    <li class="{{($seg2=="users" && $seg3=="create")?'active':''}}"><a href="{{route('users.create')}}">Add New</a></li>
+                    <li class="{{($seg2=="users" && ($seg3=="list" || $seg3=="edit"))?'active':''}}"><a href="{{route('users.list')}}">List</a></li>
 
                 </ul>
             </li>
-            <li>
+            <li class="{{($seg2=="funds")?'active':''}}">
                 <a href="#"><i class="fa fa-bank"></i> <span class="nav-label">Funds</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="{{route('funds.create')}}">Add Funds</a></li>
-                    <li><a href="{{route('funds.list')}}">History</a></li>
+                    <li class="{{($seg2=="funds" && $seg3=="create")?'active':''}}"><a href="{{route('funds.create')}}">Add Funds</a></li>
+                    <li class="{{($seg2=="funds" && ($seg3=="list" || $seg3=="edit"))?'active':''}}"><a href="{{route('funds.list')}}">History</a></li>
 
                 </ul>
             </li>

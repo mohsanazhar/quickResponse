@@ -55,10 +55,6 @@
                                                 </div>
                                             @endif
                                             <div class="form-group">
-                                                <label>User Name</label>
-                                                <input type="text" name="user_name" placeholder="Enter username" value="{{old('user_name',$user['user_name'])}}" class="form-control">
-                                            </div>
-                                            <div class="form-group">
                                                 <label>First Name</label>
                                                 <input type="text" name="first_name" placeholder="Enter first name" value="{{old('first_name',$user['first_name'])}}" class="first_name form-control">
                                             </div>

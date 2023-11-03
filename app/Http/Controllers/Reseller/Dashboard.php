@@ -14,7 +14,9 @@ class Dashboard extends Controller
      */
     public function index()
     {
-        return view('reseller.dashboard');
+        $users = User::with('accountType')->where(['user_type'=>'web','create_by'=>auth()->id()])->count();
+        $balance = User::find(auth()->id());
+        return view('reseller.dashboard',compact('users','balance'));
     }
 
     /**

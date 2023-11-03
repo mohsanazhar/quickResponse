@@ -3,16 +3,35 @@
     <div id="page-wrapper" class="gray-bg">
         @include('reseller.layout.top_headers')
         <div class="wrapper wrapper-content">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <div class="ibox-tools">
+                            </div>
+                            <h5>End Users</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h1 class="no-margins">{{$users}}</h1>
 
-        </div>
-        <div class="footer">
-            <div class="float-right">
-                10GB of <strong>250GB</strong> Free.
+                            <small>Total</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="ibox ">
+                        <div class="ibox-title">
+                            <h5>Account Balance</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <h1 class="no-margins">{{$balance->balance}}</h1>
+                            <small>Total</small>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2018
-            </div>
         </div>
+        @include('admin.footer')
     </div>
 
 @endsection

@@ -61,10 +61,6 @@
                                                     <input type="hidden"  class="i-checks" name="user_type" value="web">
                                             </div>
                                             <div class="form-group">
-                                                <label>User Name</label>
-                                                <input type="text" name="user_name" placeholder="Enter username" value="{{old('user_name','')}}" class="form-control">
-                                            </div>
-                                            <div class="form-group">
                                                 <label>First Name</label>
                                                 <input type="text" name="first_name" placeholder="Enter first name" value="{{old('first_name','')}}" class="first_name form-control">
                                             </div>
@@ -133,10 +129,6 @@
                                                 <input type="text" name="ssn" placeholder="Enter social security number" value="{{old('ssn','')}}"  class="form-control">
                                             </div>
                                             <div class="form-group ">
-                                                <label>Employer</label>
-                                                <input type="text" name="employer" placeholder="Enter employer" value="{{old('"employer','')}}"  class="form-control">
-                                            </div>
-                                            <div class="form-group ">
                                                 <label>High School</label>
                                                 <input type="text" name="high_school" placeholder="Enter high school" value="{{old('high_school','')}}"  class="form-control">
                                             </div>
@@ -182,12 +174,11 @@
                                             <div class="form-group">
                                                 <label>Payment Methods</label>
                                                 <br>
+                                                @foreach(payment_methods_list() as $k=>$v)
                                                 <label>
-                                                    <input type="checkbox" value="paypal" class="i-checks" name="payment_methods[]">&nbsp; PayPal
+                                                    <input type="checkbox" value="{{$k}}" class="i-checks" name="payment_methods[]">&nbsp; {{$v}}
                                                 </label>
-                                                <label>
-                                                    <input type="checkbox" value="stripe" class="i-checks" name="payment_methods[]">&nbsp; Stripe
-                                                </label>
+                                                @endforeach
                                             </div>
                                             <div>
                                                 <button class="btn btn-sm btn-primary float-right m-t-n-xs" type="submit"><strong>Save</strong></button>

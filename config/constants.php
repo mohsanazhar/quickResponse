@@ -26,3 +26,9 @@
         'paid'=>'Paid',
         'subscription'=>'Subscription'
     ];
+    const payment_methods = [
+        'cashapp'=>'CashApp',
+        'paypal'=>'PayPal',
+        'chime'=>'Chime',
+        'stripe'=>'Stripe'
+    ];
