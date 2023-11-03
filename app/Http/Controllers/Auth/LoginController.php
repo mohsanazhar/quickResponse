@@ -48,7 +48,7 @@ class LoginController extends Controller
                 case 'reseller':
                     $url_intended = RouteServiceProvider::RESELLER;
                     break;
-                case 'user':
+                case 'web':
                     $url_intended = RouteServiceProvider::USER;
                     break;
             }

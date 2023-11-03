@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Route;
  */
 
  Route::get('/',[\App\Http\Controllers\User\UserDashboardController::class,'index']);
- Route::get('/profile',[\App\Http\Controllers\User\UserDashboardController::class,'profile'])->name('users.profile');
+ Route::get('/settings/profile',[\App\Http\Controllers\User\UserDashboardController::class,'profile_view'])->name('users.profile');
  Route::post('/profile',[\App\Http\Controllers\User\UserDashboardController::class,'profile'])->name('users.updateProfile');
- Route::get('/settings',[\App\Http\Controllers\User\UserDashboardController::class,'settings'])->name('users.settings');
- Route::post('/settings',[\App\Http\Controllers\User\UserDashboardController::class,'updateSettings'])->name('users.updateSettings');
+ Route::get('/settings/password',[\App\Http\Controllers\User\UserDashboardController::class,'settings'])->name('users.settings');
+ Route::post('/settings/updatePassword',[\App\Http\Controllers\User\UserDashboardController::class,'updateSettings'])->name('users.updateSettings');
  // Users
 
  Route::prefix('recipients')->group(function(){

@@ -109,6 +109,9 @@
         </div>
     @endsection
     @section('script')
+        <!-- Custom and plugin javascript -->
+        <script src="{{asset('/master')}}/js/inspinia.js"></script>
+        <script src="{{asset('/master')}}/js/plugins/pace/pace.min.js"></script>
         <script src="{{asset('/master')}}/js/plugins/dataTables/datatables.min.js"></script>
         <script src="{{asset('/master')}}/js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>
         <!-- Page-Level Scripts -->

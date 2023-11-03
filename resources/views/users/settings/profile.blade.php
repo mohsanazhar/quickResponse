@@ -36,6 +36,9 @@
                                         @if(session()->has('success'))
                                             <div class="alert alert-success">{{session()->get('success')}}</div>
                                         @endif
+                                        @if(session()->has('error'))
+                                            <div class="alert alert-danger">{{session()->get('error')}}</div>
+                                        @endif
                                         <form role="form" method="post" action="{{route('users.updateProfile')}}">
                                             @csrf
                                             @if ($errors->any())
@@ -158,7 +161,6 @@
                 </div>
             </div>
             @include('admin.footer')
-
         </div>
     @endsection
     @section('script')

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
  Route::prefix('users')->group(function(){
      Route::get('list',[\App\Http\Controllers\Admin\UserController::class,'index'])->name('users.listUser');
+     Route::get('reseller-list',[\App\Http\Controllers\Admin\UserController::class,'reseller_list'])->name('users.reseller_list');
      Route::get('create',[\App\Http\Controllers\Admin\UserController::class,'create'])->name('users.createNewUser');
      Route::post('store',[\App\Http\Controllers\Admin\UserController::class,'store'])->name('users.saveNewUser');
      Route::get('edit/{id}',[\App\Http\Controllers\Admin\UserController::class,'edit'])->name('users.editUser');

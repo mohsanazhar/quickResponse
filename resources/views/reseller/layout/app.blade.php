@@ -3,7 +3,10 @@
 <head>
     @include('reseller.layout.meta')
     @include('reseller.layout.style')
-
+    <?php
+       $seg2 =  request()->segment(2);
+       $seg3 = request()->segment(3);
+     ?>
 </head>
 
 <body class="md-skin">

@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $allowed_account_type = setting_item('reseller_allowed_account_type');
         $accountType = AccountTypeModel::find($allowed_account_type);
-        $account = (!is_null($accountType))?$accountType->toArray():[];
+        $account[] = (!is_null($accountType))?$accountType->toArray():[];
         return view('reseller.users.create',compact('account'));
     }
 
@@ -35,7 +35,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $valid = validator()->make($request->input(),[
-            'user_name'=>'required',
             'first_name'=>'required',
             'last_name'=>'required',
             'email'=>'required|email|unique:users',

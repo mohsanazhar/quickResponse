@@ -4,17 +4,5 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="PHARS">
-        <CLASSES>
-          <root url="phar://$MODULE_DIR$/vendor/phpunit/phpunit/tests/end-to-end/_files/phar-extension/tools/phpunit.d/phpunit-test-extension-1.0.0.phar/" />
-          <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
-        </CLASSES>
-        <SOURCES>
-          <root url="phar://$MODULE_DIR$/vendor/phpunit/phpunit/tests/end-to-end/_files/phar-extension/tools/phpunit.d/phpunit-test-extension-1.0.0.phar/" />
-          <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
   </component>
 </module>

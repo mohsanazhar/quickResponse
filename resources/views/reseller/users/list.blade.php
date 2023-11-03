@@ -37,7 +37,6 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>User Name</th>
                                             <th>User Type</th>
                                             <th>Account Type</th>
                                             <th>Email</th>
@@ -56,11 +55,10 @@
                                                 @endphp
                                                 <tr class="gradeX">
                                                     <td>{{$v['id']}}</td>
-                                                    <td>{{$v['user_name']}}</td>
                                                     <td>{{$v['user_type']}}</td>
                                                     <td>{{(!is_null($accountType))?$accountType['name']:''}}</td>
                                                     <td class="center">{{$v['email']}}</td>
-                                                    <td class="center">{{($v['status']==1)?"Active":"Disable"}}</td>
+                                                    <td class="center">{{account_status[$v['status']]}}</td>
                                                     <td class="center">{{$v['phone']}}</td>
                                                     <td class="center">{{$v['city']}}</td>
                                                     <td class="center">

@@ -55,20 +55,6 @@
                                                 </div>
                                             @endif
                                             <div class="form-group">
-                                                <label>User Type</label>
-                                                <br>
-                                                <label onclick="changeUser('web')">
-                                                    <input type="radio"  class="i-checks" name="user_type" {{($user['user_type']=="web")?'checked':''}} value="web" checked> End User
-                                                </label>
-                                                <label onclick="changeUser('reseller')">
-                                                    <input type="radio" class="i-checks" name="user_type" {{($user['user_type']=="reseller")?'checked':''}} value="reseller"> Reseller
-                                                </label>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>User Name</label>
-                                                <input type="text" name="user_name" placeholder="Enter username" value="{{old('user_name',$user['user_name'])}}" class="form-control">
-                                            </div>
-                                            <div class="form-group">
                                                 <label>First Name</label>
                                                 <input type="text" name="first_name" placeholder="Enter first name" value="{{old('first_name',$user['first_name'])}}" class="first_name form-control">
                                             </div>
@@ -96,7 +82,7 @@
                                                 <label>Home Phone</label>
                                                 <input type="text" name="home_phone" placeholder="Enter phone" value="{{old('home_phone',$user['home_phone'])}}" class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user">
                                                 <label>Work Phone</label>
                                                 <input type="text" name="work_phone" placeholder="Enter phone" value="{{old('work_phone',$user['work_phone'])}}" class="form-control">
                                             </div>
@@ -128,11 +114,11 @@
                                                 <label>Zip Code</label>
                                                 <input type="text" name="zip_code" placeholder="Enter zip code" value="{{old('zip_code',$user['zip_code'])}}"  class="form-control">
                                             </div>
-                                            .<div class="form-group ">
+                                            .<div class="form-group end_user">
                                                 <label>Employer Name</label>
                                                 <input type="text" name="employer" placeholder="Enter employer"  value="{{old('employer',$user['employer'])}}" class="form-control">
                                             </div>
-                                            <div class="form-group ">
+                                            <div class="form-group end_user">
                                                 <label>Employer Phone Number</label>
                                                 <input type="text" name="employer_number" placeholder="Enter employer phone number"  value="{{old('employer_number',$user['employer_number'])}}" class="form-control">
                                             </div>
@@ -156,19 +142,19 @@
                                                 <label>College</label>
                                                 <input type="text" name="college" placeholder="Enter college"value="{{old('college',$user['college'])}}"   class="form-control">
                                             </div>
-                                            <div class="form-group end_user">
+                                            <div class="form-group">
                                                 <label>Facebook Address</label>
                                                 <input type="text" name="fb_link" placeholder="Enter facebook address" value="{{old('fb_link',$user['fb_link'])}}"  class="form-control">
                                             </div>
-                                            <div class="form-group end_user">
+                                            <div class="form-group">
                                                 <label>Twitter</label>
                                                 <input type="text" name="twitter" placeholder="Enter twitter link" value="{{old('twitter',$user['twitter'])}}"  class="form-control">
                                             </div>
-                                            <div class="form-group end_user">
+                                            <div class="form-group">
                                                 <label>Instagram Link</label>
                                                 <input type="text" name="instagram" placeholder="Enter instagram link" value="{{old('instagram',$user['instagram'])}}"  class="form-control">
                                             </div>
-                                            <div class="form-group end_user">
+                                            <div class="form-group">
                                                 <label>TikTok Link</label>
                                                 <input type="text" name="ticktock" placeholder="Enter tikTok username" value="{{old('ticktock',$user['ticktock'])}}"  class="form-control">
                                             </div>
@@ -184,7 +170,7 @@
                                                 <label>Note</label>
                                                <textarea class="form-control" name="note" rows="2">{{old('note',$user['note'])}}</textarea>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group end_user">
                                                 <label>Account Type</label>
                                                 <select class="form-control" name="account_type">
                                                     <option value="">Please select account type</option>
@@ -196,7 +182,7 @@
                                                 </select>
                                             </div>
                                             @php $user['payment_methods'] = (!is_null($user['payment_methods']))?$user['payment_methods']:(array)$user['payment_methods'];  @endphp
-                                            <div class="form-group">
+                                            <div class="form-group end_user">
                                                 <label>Payment Methods</label>
                                                 <br>
                                                 <label>

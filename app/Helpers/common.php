@@ -40,9 +40,5 @@ function add_balance_admin_account($user_id,$amount =0 ){
  * payments methods list
  */
 function payment_methods_list(){
-    return [
-        'paypal'=>'Paypal',
-        'cash_app'=>'Cash App',
-        'chime'=>'Chime',
-    ];
+    return payment_methods;
 }

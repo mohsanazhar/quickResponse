@@ -3,7 +3,10 @@
 <head>
     @include('users.layout.meta')
     @include('users.layout.style')
-
+    <?php
+      $seg2= request()->segment(2);
+      $seg3 = request()->segment(3);
+    ?>
 </head>
 
 <body class="md-skin">
